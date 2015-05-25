@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js调试</title>
+    <style>
+        div{width:200px; height: 200px; background: #ccc; position: absolute; top:0;}
+        div:nth-child(1){left:0;}
+        div:nth-child(2){ left:200px;}
+        div:nth-child(3){left:400px;}
+        div:nth-child(4){ left:600px;}
+    </style>
+    <script>
+        window.onload = function(){
+            var aDiv = document.getElementsByTagName('div');
+            document.onmousemove = function(ev){
+                var oEvent = ev || event;
+                for(var i = 0; i< aDiv.length; i++)
+                {
+//                    alert(aDiv[i].style.left);
+//                    alert(aDiv[i].style.top);
+
+                    aDiv[i].style.left = oEvent.clientX + (i*200) + 'px';
+                    aDiv[i].style.top = oEvent.clientY + 'px';
+
+                }
+
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>
